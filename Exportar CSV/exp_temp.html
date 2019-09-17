@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+  <title>Historial Temperatura | Estación #1</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>  
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>  
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+ <link rel="shortcut icon" href="logo.ico" />
+ <body bgcolor="FFCECB">
+
+<style>
+body {
+  margin: 0;
+}
+ h1 { 
+  display: block;
+  font-size: 2em;
+  margin-top: 0em;
+  margin-bottom: 0em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: black;
+  text-align: center;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  width: 15%;
+  background: linear-gradient(to bottom, #00ffcc 0%, #0066ff 100%);
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+li a {
+  display: block;
+  color: #000;
+  padding: 20px 0px;
+  text-decoration: none;
+  text-align: center;
+}
+
+li a.active {
+  color: white;
+}
+
+li a:hover:not(.active) {
+  background-color: #003366;
+  color: white;
+}
+div.gallery {
+
+    }
+
+    div.gallery:hover {
+    }
+
+    div.gallery img {
+      width: 100%;
+      height: 100%;    }
+
+    div.desc {
+      padding: 15px;
+      text-align: center;
+      color: black;
+      font-size: 120%;
+    }
+
+
+    .responsive {
+      margin: 20px;
+      padding: 0 6px;
+      float: left;
+      width: 25%;
+    }
+</style>
+</head>
+<body>
+
+<ul>
+  <li><a class="active" href="index.html"><img src="ITSON.png" alt="HOME" width="150" height="150"></a></li>
+  <li><a href="est1.php">ESTACIÓN #1</a></li>
+  <li><a href="est2.php">ESTACIÓN #2</a></li>
+  <li><a href="est3.php">ESTACIÓN #3</a></li>
+</ul>
+
+<style>
+h2 { 
+  position: absolute;
+  left: 250px;
+  top: 0px;
+  display: block;
+  font-size: 2em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+</style>
+<h2>Historial Temperatura</h2>
+<div style="margin-left:25%;padding:150px 100px;height:auto;">
+  <br /><br />  
+                <form method="post" action="temp_export.php" align="center">   
+                <div class="col-md-2">  
+                     <input type="text" name="Desde" id="Desde" class="form-control" placeholder="Desde" />  
+                </div>  
+                <div class="col-md-2">  
+                     <input type="text" name="Hasta" id="Hasta" class="form-control" placeholder="Hasta" />  
+                </div>  
+                <div class="col-md-2">  
+                     <input type="submit" name="temp_export" id="temp_export" value="Exportar CSV" class="btn btn-success" />  
+                </div>  
+                <div style="clear:both"></div>                 
+                <br />     
+</div>
+</div>
+</body>
+</html>
+
+<script>  
+      $(document).ready(function(){  
+           var defaults = {
+            closeText: 'Cerrar',
+            prevText: '<Ant',
+            nextText: 'Sig>',
+            currentText: 'Hoy',
+            monthNames: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Noviembre', 'Diciembre'],
+            monthNamesShort: ['Ene','Feb','Mar','Abr', 'May','Jun','Jul','Ago','Sep', 'Oct','Nov','Dic'],
+            dayNames: ['Domingo', 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado'],
+            dayNamesShort: ['Dom','Lun','Mar','Mié','Juv','Vie','Sáb'],
+            dayNamesMin: ['Do','Lu','Ma','Mi','Ju','Vi','Sa'],
+            weekHeader: 'Sm',
+            dateFormat: 'yy/mm/dd',
+            firstDay: 1,
+            isRTL: false,
+            showMonthAfterYear: false,
+            yearSuffix: ''
+        };
+    $.datepicker.setDefaults(defaults);
+           $(function(){  
+                $("#Desde").datepicker();  
+                $("#Hasta").datepicker();  
+           });   
+      });  
+ </script>
+
+                    
